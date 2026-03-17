@@ -114,6 +114,12 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+
+      <div>Placeholder Element 1</div>
+
+      <div>Placeholder Element 2</div>
+
+      <div>Placeholder Element 3</div>
     </>
   )
 }
