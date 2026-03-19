@@ -23,30 +23,31 @@ function App() {
         <Link to="/profile">Profile</Link>
       </nav>
 
-      {/* Display components on the website */}
-      <div className="container mx-auto p-4">
-        <ProductCard 
-          name="Sample Product" 
-          price={29.99} 
-          imageUrl="https://via.placeholder.com/300" 
-          onAddToCart={handleAddToCart} 
-        />
-        <UserProfile 
-          username="John Doe" 
-          email="john@example.com" 
-          avatarUrl="https://via.placeholder.com/100" 
-        />
-        <CommentList 
-          comments={["Great product!", "Love it."]} 
-          onAddComment={handleAddComment} 
-        />
-      </div>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+
+      <div className="container mx-auto p-4 text-center">
+        <ProductCard
+          name="Sample Product"
+          price={67.99}
+          imageUrl=""
+          onAddToCart={handleAddToCart}
+        />
+        <UserProfile
+          username="mangoman"
+          email="mango@example.com"
+          avatarUrl=""
+        />
+        <CommentList
+          comments={["Great product!", "Love it."]}
+          onAddComment={handleAddComment}
+        />
+      </div>
+
+    
     </BrowserRouter>
   );
 }
