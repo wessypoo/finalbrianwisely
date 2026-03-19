@@ -29,7 +29,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Routes>
 
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 text-center">
         <ProductCard
           name="Sample Product"
           price={67.99}
