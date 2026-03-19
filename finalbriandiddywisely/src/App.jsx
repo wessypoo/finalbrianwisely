@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
-import ProductCard from "./components/ProductCard";
-import UserProfile from "./components/UserProfile";
-import CommentList from "./components/CommentList";
+import ProductCard from "./components/src/ProductCard";
+import UserProfile from "./components/src/UserProfile";
+import CommentList from "./components/src/CommentList";
 
 function App() {
   const handleAddToCart = (item) => {
@@ -23,18 +23,18 @@ function App() {
         <Link to="/profile">Profile</Link>
       </nav>
 
-      {/* Display components on the website */}
+      
       <div className="container mx-auto p-4">
         <ProductCard 
           name="Sample Product" 
-          price={29.99} 
-          imageUrl="https://via.placeholder.com/300" 
+          price={67.99} 
+          imageUrl="" 
           onAddToCart={handleAddToCart} 
         />
         <UserProfile 
-          username="John Doe" 
-          email="john@example.com" 
-          avatarUrl="https://via.placeholder.com/100" 
+          username="mangoman" 
+          email="mango@example.com" 
+          avatarUrl="" 
         />
         <CommentList 
           comments={["Great product!", "Love it."]} 
