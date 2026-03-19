@@ -23,6 +23,12 @@ function App() {
         <Link to="/profile">Profile</Link>
       </nav>
 
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+
       <div className="container mx-auto p-4">
         <ProductCard
           name="Sample Product"
@@ -41,11 +47,7 @@ function App() {
         />
       </div>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
+    
     </BrowserRouter>
   );
 }
