@@ -1,51 +1,36 @@
 import React, { useState } from 'react';
 
 const UserProfile = ({ username, email, avatarUrl }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [tempUsername, setTempUsername] = useState(username);
-  const [tempEmail, setTempEmail] = useState(email);
-
-  const handleSave = () => {
-    // Assume a prop or context handles saving
-    setIsEditing(false);
-  };
+  const [liked, setLiked] = useState(false);
+  const [hearted, setHearted] = useState(false);
 
   return (
-    <div className="border border-gray-300 rounded-lg p-6 m-4 max-w-md shadow-md">
-      <img src={avatarUrl} alt={username} className="w-24 h-24 rounded-full mx-auto mb-4" />
-      {isEditing ? (
-        <div className="text-center">
-          <input 
-            type="text" 
-            value={tempUsername} 
-            onChange={(e) => setTempUsername(e.target.value)} 
-            className="border p-2 mb-2 w-full text-center"
-          />
-          <input 
-            type="email" 
-            value={tempEmail} 
-            onChange={(e) => setTempEmail(e.target.value)} 
-            className="border p-2 mb-4 w-full text-center"
-          />
-          <button 
-            onClick={handleSave} 
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-          >
-            Save
-          </button>
-        </div>
-      ) : (
-        <div className="text-center">
-          <h2 className="text-xl font-bold mb-2">{username}</h2>
-          <p className="text-gray-600 mb-4">{email}</p>
-          <button 
-            onClick={() => setIsEditing(true)} 
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            Edit Profile
-          </button>
-        </div>
-      )}
+    <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '20px', margin: '10px', maxWidth: '300px', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+      <img src={avatarUrl} alt={username} style={{ width: '100px', height: '100px', borderRadius: '50%', marginBottom: '15px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
+      <h2 style={{ fontSize: '20px', fontWeight: 'bold', margin: '10px 0' }}>{username}</h2>
+      <p style={{ color: '#666', marginBottom: '20px' }}>{email}</p>
+      
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+        <button 
+          onClick={() => setLiked(!liked)}
+          style={{ padding: '8px 16px', backgroundColor: liked ? '#ff6b6b' : '#f0f0f0', color: liked ? 'white' : 'black', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '14px' }}
+        >
+          👍 Like
+        </button>
+        
+        <button 
+          onClick={() => setHearted(!hearted)}
+          style={{ padding: '8px 16px', backgroundColor: hearted ? '#ff69b4' : '#f0f0f0', color: hearted ? 'white' : 'black', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '14px' }}
+        >
+          ❤️ Heart
+        </button>
+        
+        <button 
+          style={{ padding: '8px 16px', backgroundColor: '#f0f0f0', color: 'black', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '14px' }}
+        >
+          ✕ Close
+        </button>
+      </div>
     </div>
   );
 };
