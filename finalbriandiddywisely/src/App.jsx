@@ -7,20 +7,14 @@ import UserProfile from "./components/UserProfile";
 import CommentList from "./components/CommentList";
 
 function App() {
-  const handleAddToCart = (item) => {
-    console.log("Added to cart:", item);
-  };
-
-  const handleAddComment = (comment) => {
-    console.log("New comment:", comment);
-  };
-
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/about">About</Link> |{" "}
-        <Link to="/profile">Profile</Link>
+      <nav className="navbar">
+        <Link to="/" className="nav-link">Home</Link>
+        <span className="nav-separator">|</span>
+        <Link to="/about" className="nav-link">About</Link>
+        <span className="nav-separator">|</span>
+        <Link to="/profile" className="nav-link">Profile</Link>
       </nav>
 
       <Routes>
@@ -29,25 +23,6 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Routes>
 
-      <div className="container mx-auto p-4 text-center">
-        <ProductCard
-          name="Sample Product"
-          price={67.99}
-          imageUrl=""
-          onAddToCart={handleAddToCart}
-        />
-        <UserProfile
-          username="mangoman"
-          email="mango@example.com"
-          avatarUrl=""
-        />
-        <CommentList
-          comments={["Great product!", "Love it."]}
-          onAddComment={handleAddComment}
-        />
-      </div>
-
-    
     </BrowserRouter>
   );
 }
