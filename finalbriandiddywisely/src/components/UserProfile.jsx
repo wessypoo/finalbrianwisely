@@ -1,36 +1,26 @@
 import React, { useState } from 'react';
 
 const UserProfile = ({ username, email, avatarUrl }) => {
-  const [liked, setLiked] = useState(false);
-  const [hearted, setHearted] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+  const [downvoteCount, setDownvoteCount] = useState(0);
 
   return (
-    <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '20px', margin: '10px', maxWidth: '300px', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-      <img src={avatarUrl} alt={username} style={{ width: '100px', height: '100px', borderRadius: '50%', marginBottom: '15px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
-      <h2 style={{ fontSize: '20px', fontWeight: 'bold', margin: '10px 0' }}>{username}</h2>
-      <p style={{ color: '#666', marginBottom: '20px' }}>{email}</p>
-      
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-        <button 
-          onClick={() => setLiked(!liked)}
-          style={{ padding: '8px 16px', backgroundColor: liked ? '#ff6b6b' : '#f0f0f0', color: liked ? 'white' : 'black', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '14px' }}
-        >
-          👍 Like
-        </button>
-        
-        <button 
-          onClick={() => setHearted(!hearted)}
-          style={{ padding: '8px 16px', backgroundColor: hearted ? '#ff69b4' : '#f0f0f0', color: hearted ? 'white' : 'black', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '14px' }}
-        >
-          ❤️ Heart
-        </button>
-        
-        <button 
-          style={{ padding: '8px 16px', backgroundColor: '#f0f0f0', color: 'black', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '14px' }}
-        >
-          ✕ Close
-        </button>
-      </div>
+    <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '16px', margin: '10px', maxWidth: '220px', textAlign: 'center', background: 'white' }}>
+      <img src={avatarUrl} alt={username} style={{ width: '80px', height: '80px', borderRadius: '50%', margin: '0 auto 10px', display: 'block' }} />
+      <h2 style={{ fontSize: '18px', margin: '8px 0', color: '#222' }}>{username}</h2>
+      <p style={{ color: '#222', fontSize: '14px', marginBottom: '14px' }}>{email}</p>
+      <button 
+        onClick={() => setLikeCount(likeCount + 1)}
+        style={{ margin: '0 6px', padding: '6px 12px', borderRadius: '4px', border: '1px solid #ddd', background: '#f5f5f5', cursor: 'pointer', color: '#222' }}
+      >
+        👍 {likeCount}
+      </button>
+      <button 
+        onClick={() => setDownvoteCount(downvoteCount + 1)}
+        style={{ margin: '0 6px', padding: '6px 12px', borderRadius: '4px', border: '1px solid #ddd', background: '#f5f5f5', cursor: 'pointer', color: '#222' }}
+      >
+        👎 {downvoteCount}
+      </button>
     </div>
   );
 };

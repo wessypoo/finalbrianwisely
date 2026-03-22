@@ -9,12 +9,12 @@ import CommentList from "./components/CommentList";
 function App() {
   return (
     <BrowserRouter>
-      <nav className="navbar">
-        <Link to="/" className="nav-link">Home</Link>
-        <span className="nav-separator">|</span>
-        <Link to="/about" className="nav-link">About</Link>
-        <span className="nav-separator">|</span>
-        <Link to="/profile" className="nav-link">Profile</Link>
+      <nav className="navbar" style={{ background: '#b0b0b0', padding: '12px 0', color: 'black' }}>
+        <Link to="/" className="nav-link" style={{ color: 'black', textDecoration: 'none', margin: '0 8px' }}>Home</Link>
+        <span className="nav-separator" style={{ color: 'black' }}>|</span>
+        <Link to="/about" className="nav-link" style={{ color: 'black', textDecoration: 'none', margin: '0 8px' }}>About</Link>
+        <span className="nav-separator" style={{ color: 'black' }}>|</span>
+        <Link to="/profile" className="nav-link" style={{ color: 'black', textDecoration: 'none', margin: '0 8px' }}>Profile</Link>
       </nav>
 
       <Routes>

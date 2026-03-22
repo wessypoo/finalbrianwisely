@@ -3,41 +3,33 @@ import TimelineItem from '../components/TimelineItem';
 
 function About() {
   const [activeIndex, setActiveIndex] = useState(null);
-
   const facts = [
     "Wes loves electronics",
     "Brian is a Valorant fan",
     "We built this app together"
   ];
-
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>About Page</h1>
-      <p>Welcome to our application! This is the About page where you can learn more about us.</p>
-      <p style={{ color: '#666', marginBottom: '30px' }}>We are two developers passionate about creating meaningful web applications that help educate people on important environmental topics like pollution and its global impact.</p>
-
-      <h2>Fun Facts</h2>
-      <div style={{ maxWidth: '400px' }}>
+    <div style={{ background: '#ffe0ef', minHeight: '100vh', padding: '16px', textAlign: 'center', color: '#181818' }}>
+      <h1 style={{ color: '#181818' }}>About Page</h1>
+      <p style={{ color: '#222' }}>This is the About page where you can learn more about us.</p>
+      <h2 style={{ color: '#b23c6f' }}>Fun Facts</h2>
+      <div style={{ maxWidth: '300px', margin: '0 auto' }}>
         {facts.map((fact, index) => (
           <div
             key={index}
             onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-            style={{
-              padding: '10px',
-              margin: '8px 0',
-              backgroundColor: activeIndex === index ? '#e0e0e0' : '#f5f5f5',
-              cursor: 'pointer'
-            }}
+            className="card-hover"
+            style={{ padding: '8px', margin: '6px 0', backgroundColor: activeIndex === index ? '#f8b6d8' : 'white', cursor: 'pointer', borderRadius: '6px', transition: 'background 0.2s', color: '#181818' }}
           >
-            <p>{fact}</p>
+            <p style={{ margin: 0 }}>{fact}</p>
           </div>
         ))}
       </div>
-
-      <h2>Our Journey</h2>
+      <h2 style={{ color: '#b23c6f' }}>Our Journey</h2>
       <TimelineItem year="2025" event="Started Learning React" />
       <TimelineItem year="2025" event="Built First App" />
       <TimelineItem year="2026" event="Created This Portfolio" />
+      <style>{`.card-hover:hover { background: #f8b6d8 !important; }`}</style>
     </div>
   );
 }
